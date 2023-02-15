@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DNS</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="ffil">
+        <h1>Мыши</h1>
+        <form action="">
+          <p class="zag">Производитель</p>
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fall"
+            value="fall"
+          />
+          <label for="fall">Все бренды</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="flogitech"
+            value="flogitech"
+          />
+          <label for="flogitech">Logitech</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="frazer"
+            value="frazer"
+          />
+          <label for="frazer">Razer</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fzetgaming"
+            value="fzetgaming"
+          />
+          <label for="fzetgaming">ZET GAMING</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fardorgaming"
+            value="fardorgaming"
+          />
+          <label for="fardorgaming">ARDOR GAMING</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fa4tech"
+            value="fa4tech"
+          />
+          <label for="fa4tech">A4Tech</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fdexp"
+            value="fdexp"
+          />
+          <label for="fdexp">DEXP</label>
+          <br />
+
+          <p class="zag">Тип подключения</p>
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fprovod"
+            value="fprovod"
+          />
+          <label for="fprovod">Проводная</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fbesprovod"
+            value="fbesprovod"
+          />
+          <label for="fbesprovod">Беспроводная</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fbesprovodprovod"
+            value="fbesprovodprovod"
+          />
+          <label for="fbesprovodprovod">Беспроводная/проводная</label>
+          <br />
+
+          <p class="zag">Интерфейс подключения</p>
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fusba"
+            value="fusba"
+          />
+          <label for="fusba">USB Type-A</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fbluetooth"
+            value="fbluetooth"
+          />
+          <label for="fbluetooth">Bluetooth</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="fradio"
+            value="fradio"
+          />
+          <label for="fradio">Радиоканал</label>
+          <br />
+
+          <p class="zag">Общее количество кнопок</p>
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="f3"
+            value="f3"
+          />
+          <label for="f3">3</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="f4"
+            value="f4"
+          />
+          <label for="f4">4</label>
+          <br />
+
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            name="flist"
+            id="f6"
+            value="f6"
+          />
+          <label for="f6">6</label>
+          <br />
+
+
+          <!-- / -->
+          <!-- <p class="zag">Сортеровка</p>
+
+          <input
+            class="goods-card"
+            type="radio"
+            name="flist"
+            id="data-price"
+            value="data-price"
+            data-price="300"
+            data-rating="7"
+          />
+          <label for="f3">3</label>
+          <br /> -->
+
+
+
+          
+
+          <input class="but" type="button" value="Применить" id="bfil" />
+          <br />
+          <input class="but" type="reset" value="Сбросить" />
+        </form>
+        <button class="but" id="sort-asc">Цена возрастние</button>
+        <button class="but" id="sort-desc">Цена убывание</button>
+        <button class="but" id="sort-rating">Рейтинг</button>
+      </div>
+      <!-- Контент -->
+      <div id="content"></div>
+
+      <div>
+        <button class="but" id="btnbsk">Корзина</button>
+        <div id="blkbsk"></div>
+      </div>
+
+
+      <div>
+      <div class="goods-wrap">
+        <div class="goods-card" data-price="400" data-rating="3">
+          <h1>За что</h1>
+          <p>45456 ads</p>
+          <p>Price 400</p>
+          <button class="buy">Купить</button>
+        </div>
+        <div class="goods-card" data-price="200" data-rating="1">
+          <h1>Мне</h1>
+          <p>23142 ads</p>
+          <p>Price 200</p>
+          <button class="buy">Купить</button>
+        </div>
+        <div class="goods-card" data-price="300" data-rating="7">
+          <h1>ЭТО</h1>
+          <p>111231 ads</p>
+          <p>Price 300</p>
+          <button class="buy">Купить</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <script src="script.js?v=1"></script>
+  </body>
+</html>

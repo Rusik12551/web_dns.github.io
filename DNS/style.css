@@ -1,0 +1,153 @@
+#main {
+  display: flex;
+}
+#content {
+  padding-left: 300px;
+}
+#ffil {
+  height: 930px;
+  width: 250px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding-left: 10px;
+}
+#btnbsk {
+  margin-left: 100px;
+}
+h1 {
+  font-family: Calibri;
+  font-size: 35px;
+}
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  font-family: Calibri;
+  font-size: 16px;
+}
+.custom-checkbox + label::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-size: 100% 100%;
+}
+.custom-checkbox:checked + label::before {
+  border-color: #ffffff;
+  background-color: #ff9900;
+  background-image: url("img/galka.png");
+}
+.custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
+  border-color: #ff9100;
+}
+#bfil {
+  width: 230px;
+  font-weight: 400;
+  font-size: 17px;
+  color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ff8a04;
+  background-color: #ff941b;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#bfil:hover {
+  border: 1px solid #ffa622;
+  background-color: #ffa622;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.but {
+  width: 230px;
+  font-weight: 400;
+  font-size: 17px;
+  color: #474747;
+  padding: 10px;
+  border: 1px solid #a5a5a5;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  background-color: #ffffff;
+}
+
+.but:hover {
+  background-color: #f8f8f8;
+  border: 1px solid #a5a5a5;
+  color: #474747;
+  transition: 0.2s;
+}
+
+.zag {
+  font-weight: bold;
+  font-family: Calibri;
+  font-size: 18px;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+}
+#card {
+  height: 140px;
+  width: 900px;
+  display: flex;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+#card_left {
+  display: flex;
+  margin-block: auto;
+}
+#card_right {
+  margin-left: auto;
+  margin-block: -20px;
+}
+#card_price {
+  padding: 22px;
+  font-weight: 900;
+  font-family: Calibri;
+  font-size: 24px;
+  color: #222222;
+  padding-left: 40px;
+  margin-block-end: -10px;
+}
+
+#card_name {
+  font-weight: 400;
+  font-size: 20px;
+  color: #414141;
+  font-family: Calibri;
+}
+#card_name:hover {
+  color: #ff6633;
+  transition: 0.2s;
+}
+button {
+  width: 100px;
+  font-weight: 400;
+  font-size: 17px;
+  color: #474747;
+  padding: 10px;
+  border: 1px solid #a5a5a5;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 1px solid #ff8d0a;
+  background-color: #ff8d0a;
+  color: #fff;
+  transition: 0.2s;
+}
