@@ -1,8 +1,7 @@
 "use strict";
 
 let list_product = [
-  { 
-    
+  {
     name: "Мышь беспроводная DEXP WM-290RB",
     brand: "DEXP",
     type: "besprovod",
@@ -10,8 +9,7 @@ let list_product = [
     knopki: "3",
     image: "img/mouse.jpg",
     price: "3 000",
-    data_price: "3000",
-    data_rating: "3",
+    rating: "1",
   },
   {
     name: "Мышь проводная DEXP СM-1201",
@@ -21,8 +19,7 @@ let list_product = [
     knopki: "4",
     image: "img/mouse1.jpg",
     price: "5 000",
-    data_price: "5000",
-    data_rating: "1",
+    rating: "7",
   },
   {
     name: "Мышь беспроводная ARDOR GAMING Edge Air Ultra",
@@ -32,6 +29,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse2.jpg",
     price: "4 000",
+    rating: "5",
   },
   {
     name: "Мышь беспроводная/проводная ARDOR GAMING Edge Air Elit",
@@ -41,6 +39,7 @@ let list_product = [
     knopki: "4",
     image: "img/mouse3.jpg",
     price: "3 000",
+    rating: "1",
   },
   {
     name: "Мышь проводная ARDOR GAMING Warrior 2",
@@ -50,6 +49,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse4.jpg",
     price: "8 000",
+    rating: "2",
   },
   {
     name: "Мышь беспроводная/проводная ARDOR GAMING Prime X",
@@ -59,6 +59,7 @@ let list_product = [
     knopki: "3",
     image: "img/mouse5.jpg",
     price: "2 000",
+    rating: "7",
   },
   {
     name: "Мышь беспроводная Logitech Pebble M350",
@@ -68,6 +69,7 @@ let list_product = [
     knopki: "3",
     image: "img/mouse6.jpg",
     price: "4 000",
+    rating: "6",
   },
   {
     name: "Мышь беспроводная Logitech POP Mouse",
@@ -77,6 +79,7 @@ let list_product = [
     knopki: "4",
     image: "img/mouse7.jpg",
     price: "5 000",
+    rating: "5",
   },
   {
     name: "Мышь беспроводная Razer Basilisk X Hyperspeed",
@@ -86,6 +89,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse8.jpg",
     price: "3 000",
+    rating: "3",
   },
   {
     name: "Мышь беспроводная Razer Atheris White",
@@ -95,6 +99,7 @@ let list_product = [
     knopki: "4",
     image: "img/mouse9.jpg",
     price: "9 000",
+    rating: "61",
   },
   {
     name: "Мышь проводная Razer DeathAdder V2 Mini",
@@ -104,6 +109,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse10.jpg",
     price: "5 000",
+    rating: "13",
   },
   {
     name: "Мышь проводная ZET GAMING Warrior 2",
@@ -113,6 +119,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse11.jpg",
     price: "1 000",
+    rating: "21",
   },
   {
     name: "Мышь беспроводная ZET GAMING Edge Air Ultra V3",
@@ -122,6 +129,7 @@ let list_product = [
     knopki: "3",
     image: "img/mouse12.jpg",
     price: "7 000",
+    rating: "12",
   },
   {
     name: "Мышь беспроводная/проводная ZET GAMING Phantom",
@@ -131,6 +139,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse13.jpg",
     price: "4 000",
+    rating: "6",
   },
   {
     name: "Мышь беспроводная A4Tech Fstyler FB35",
@@ -140,6 +149,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse14.jpg",
     price: "9 000",
+    rating: "9",
   },
   {
     name: "Мышь беспроводная A4Tech G10-810FS",
@@ -149,6 +159,7 @@ let list_product = [
     knopki: "6",
     image: "img/mouse15.jpg",
     price: "6 000",
+    rating: "8",
   },
   {
     name: "Мышь проводная A4Tech N-500F",
@@ -158,13 +169,14 @@ let list_product = [
     knopki: "4",
     image: "img/mouse16.jpg",
     price: "1 000",
+    rating: "22",
   },
 ];
 function all_product() {
   let content = document.querySelector("#content");
 
   for (let key of list_product) {
-    content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.name}>Купить</button></div></div>`;
+    content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
   }
   korzina();
 }
@@ -177,7 +189,7 @@ function select_product() {
   content.innerHTML = "";
   let checkboxes = document.querySelectorAll("input[name=flist]:checked");
 
-  let pr = new Array();
+  let pr = [];
 
   checkboxes.forEach(function (elem) {
     pr.push(elem.value);
@@ -186,14 +198,14 @@ function select_product() {
   for (const product of pr) {
     if (product == "fall") {
       for (let key of list_product) {
-        content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+        content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
       }
     }
 
     if (product == "frazer") {
       for (let key of list_product) {
         if (key.brand == "Razer") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -201,7 +213,7 @@ function select_product() {
     if (product == "flogitech") {
       for (let key of list_product) {
         if (key.brand == "Logitech") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -209,7 +221,7 @@ function select_product() {
     if (product == "fzetgaming") {
       for (let key of list_product) {
         if (key.brand == "ZET GAMING") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -217,7 +229,7 @@ function select_product() {
     if (product == "fardorgaming") {
       for (let key of list_product) {
         if (key.brand == "ARDOR GAMING") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -225,7 +237,7 @@ function select_product() {
     if (product == "fa4tech") {
       for (let key of list_product) {
         if (key.brand == "A4Tech") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -233,7 +245,7 @@ function select_product() {
     if (product == "fdexp") {
       for (let key of list_product) {
         if (key.brand == "DEXP") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -241,7 +253,7 @@ function select_product() {
     if (product == "fprovod") {
       for (let key of list_product) {
         if (key.type == "provod") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -249,7 +261,7 @@ function select_product() {
     if (product == "fbesprovod") {
       for (let key of list_product) {
         if (key.type == "besprovod") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -257,7 +269,7 @@ function select_product() {
     if (product == "fbesprovodprovod") {
       for (let key of list_product) {
         if (key.type == "besprovodprovod") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -265,7 +277,7 @@ function select_product() {
     if (product == "ftype-a") {
       for (let key of list_product) {
         if (key.interface == "type-a") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -273,7 +285,7 @@ function select_product() {
     if (product == "fbluetooth") {
       for (let key of list_product) {
         if (key.interface == "bluetooth") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -281,7 +293,7 @@ function select_product() {
     if (product == "fradio") {
       for (let key of list_product) {
         if (key.interface == "radio") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -289,35 +301,35 @@ function select_product() {
     if (product == "f2") {
       for (let key of list_product) {
         if (key.knopki == "2") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
     if (product == "f3") {
       for (let key of list_product) {
         if (key.knopki == "3") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
     if (product == "f4") {
       for (let key of list_product) {
         if (key.knopki == "4") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
     if (product == "f5") {
       for (let key of list_product) {
         if (key.knopki == "5") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
     if (product == "f6") {
       for (let key of list_product) {
         if (key.knopki == "6") {
-          content.innerHTML += `<div id="card"><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button>Купить</button></div></div>`;
+          content.innerHTML += `<div id="card" data-price=${key.price} data-rating=${key.rating}><div id="card_left"><img id="card_img"src=${key.image} alt=${key.name}/><p id="card_name">${key.name}</div><div id="card_right"></p><p id="card_price">${key.price}</p> <button class="btnbuy" data-pr=${key.id}>В корзину</button></div></div>`;
         }
       }
     }
@@ -329,7 +341,7 @@ function select_product() {
 function select_type() {
   let ty = [];
   let pr = select_product();
-  console.log(pr);
+  console.log(ty);
 
   let checkboxes = document.querySelectorAll("input[name=flist]:checked");
 
@@ -350,54 +362,47 @@ function select_type() {
 
 function korzina() {
   let list_korzina = [];
-  let btnbuyF = document.querySelectorAll(".btnbuy");
-
-  btnbuyF.forEach(function (elem) {
-    elem.addEventListener("click", function () {
-      console.log(elem.getAttribute("data-pr"));
-      list_korzina.push(elem.getAttribute("data-pr"));
-    });
-    let btnbsk = document.querySelector("#btnbsk");
-    btnbsk.addEventListener("click", function () {
+  document.onclick = (event) => {
+    if (event.target.classList.contains("btnbuy")) {
+      list_korzina.push(event.target.dataset.pr);
       let blkbsk = document.querySelector("#blkbsk");
       blkbsk.innerHTML = "";
       for (const pr of list_korzina) {
         blkbsk.innerHTML += `${pr} <br>`;
       }
-    });
-  });
+      console.log(list_korzina);
+    }
+  }
 }
 
-
-document.querySelector('#sort-asc').onclick = function () {
-  mySort('data-price');
-}
-document.querySelector('#sort-desc').onclick = function () {
-  mySortDesc('data-price');
-}
-document.querySelector('#sort-rating').onclick = function () {
-  mySortDesc('data-rating');
-}
+document.querySelector("#sort-asc").onclick = function () {
+  mySort("data-price");
+};
+document.querySelector("#sort-desc").onclick = function () {
+  mySortDesc("data-price");
+};
+document.querySelector("#sort-rating").onclick = function () {
+  mySortDesc("data-rating");
+};
 
 function insertAfter(newNode, existingNode) {
   existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
-
 function mySort(sortType) {
   let ch1, ch2;
   let replacedNode;
 
-  let nav = document.querySelector(".goods-wrap");
-  for (let i = 0; i < nav.children.length-1; i++) {
-    for (let j = i+1; j < nav.children.length; j++) {
+  let nav = document.querySelector("#content");
+  for (let i = 0; i < nav.children.length - 1; i++) {
+    for (let j = i + 1; j < nav.children.length; j++) {
       ch1 = Number(nav.children[i].getAttribute(sortType));
-      ch2 = Number(nav.children[j].getAttribute(sortType)); 
-    
-      if (ch1 > ch2) {      
+      ch2 = Number(nav.children[j].getAttribute(sortType));
+
+      if (ch1 > ch2) {
         replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
         insertAfter(replacedNode, nav.children[i]);
-      } 
+      }
     }
   }
 }
@@ -406,16 +411,16 @@ function mySortDesc(sortType) {
   let ch1, ch2;
   let replacedNode;
 
-  let nav = document.querySelector(".goods-wrap");
-  for (let i = 0; i < nav.children.length-1; i++) {
-    for (let j = i+1; j < nav.children.length; j++) {
+  let nav = document.querySelector("#content");
+  for (let i = 0; i < nav.children.length - 1; i++) {
+    for (let j = i + 1; j < nav.children.length; j++) {
       ch1 = Number(nav.children[i].getAttribute(sortType));
-      ch2 = Number(nav.children[j].getAttribute(sortType)); 
-    
-      if (ch1 < ch2) {      
+      ch2 = Number(nav.children[j].getAttribute(sortType));
+
+      if (ch1 < ch2) {
         replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
         insertAfter(replacedNode, nav.children[i]);
-      } 
+      }
     }
   }
 }

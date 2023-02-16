@@ -5,12 +5,13 @@
   padding-left: 300px;
 }
 #ffil {
-  height: 930px;
+  height: 990px;
   width: 250px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding-left: 10px;
 }
+
 #btnbsk {
   margin-left: 100px;
 }
@@ -134,7 +135,7 @@ img {
   color: #ff6633;
   transition: 0.2s;
 }
-button {
+.btnbuy {
   width: 100px;
   font-weight: 400;
   font-size: 17px;
@@ -145,9 +146,75 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btnbuy:hover {
   border: 1px solid #ff8d0a;
   background-color: #ff8d0a;
   color: #fff;
   transition: 0.2s;
+}
+
+#side-checkbox {
+  display: none;
+}
+.side-panel {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: -790px;
+  background: #ffffff;
+  transition: all 0.5s;
+  width: 750px;
+  height: 850px;
+  box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #000000;
+  padding: 40px 20px;
+}
+#blkbsk {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-left: 40px;
+}
+
+.side-button-1-wr {
+  text-align: center;
+  margin-left: -70px;
+}
+
+#cart {
+  width: 30px;
+  height: 30px;
+  padding-left: 5px;
+}
+
+.side-button-1 .side-b {
+  margin-top: -0px;
+  width: 30px;
+  height: 70px;
+  padding: 10px 10px;
+  border-radius: 100px 0% 0% 100px;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.1);
+  line-height: 90px;
+  color: #ffffff;
+  font-weight: bold;
+  background: #ffffff;
+  cursor: pointer;
+}
+.side-button-1 .side-b:hover {
+  margin-top: -0px;
+  width: 30px;
+  height: 70px;
+  padding: 10px 10px;
+  border-radius: 100px 0% 0% 100px;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.1);
+  line-height: 90px;
+  color: #ffffff;
+  font-weight: bold;
+  transition: 0.2s;
+  background: #ff8d0a;
+  cursor: pointer;
+}
+#side-checkbox:checked + .side-panel {
+  right: 0;
+  box-shadow: 0px 2px 400px 2000px rgba(10, 10, 10, 0.89);
 }
